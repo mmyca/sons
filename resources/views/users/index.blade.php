@@ -46,7 +46,7 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item-actice">
-                <a href="#" class="menu-link">
+                <a href="{{ url('/students') }}" class="menu-link">
                   <div data-i18n="Without navbar">Student</div>
                 </a>
               </li>
@@ -78,7 +78,7 @@
                 <div class="card-header">
                     <h2>Profile</h2>
                     <div class="card-body">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Add New User</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Add New Admin</a>
                         @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -163,5 +163,4 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-</body>
 @endsection

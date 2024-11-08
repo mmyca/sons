@@ -101,6 +101,7 @@
                                     <th>Email</th>
                                     <th>Course</th>
                                     <th>Types of Scholars</th>
+                                    <th>Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>

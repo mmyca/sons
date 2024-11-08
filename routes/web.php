@@ -28,6 +28,8 @@ Auth::routes();
 // Home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/students', [App\Http\Controllers\UserController::class, 'students'])->name('students');
+
 // User Management Routes
 Route::middleware(['auth'])->group(function () {
     Route::resource('users', UserController::class);

@@ -27,7 +27,7 @@
 
           <!-- Layouts -->
           <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <a href="{{ url('/users') }}" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-user"></i>
               <div data-i18n="Layouts">Admin</div>
             </a>
@@ -46,7 +46,7 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item-actice">
-                <a href="#" class="menu-link">
+                <a href="{{ url('/students') }}" class="menu-link">
                   <div data-i18n="Without navbar">Student</div>
                 </a>
               </li>
@@ -79,7 +79,7 @@
           <div class="content-wrapper">
             <div class="container">
                 <div class="card-header">
-                    <h2>Add New User</h2>
+                    <h2>Add New Admin</h2>
                     <div class="card-body">
                         @if($errors->any())
                         <div class="alert alert-danger">
@@ -165,5 +165,4 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-</body>
 @endsection

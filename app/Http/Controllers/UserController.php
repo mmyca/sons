@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    //show all students
+    public function students()
+    {
+        $users = User::all();
+        return view('users.students', compact('users'));
+    }
     // Show all users
     public function index()
     {
@@ -51,8 +57,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'role' => 'required|string',
-            'status' => 'required|boolean',
         ]);
 
         $user->update($request->all());
@@ -67,4 +71,5 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
+
 }

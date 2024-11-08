@@ -46,7 +46,7 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item-actice">
-                <a href="auth-student-login.php" class="menu-link">
+                <a href="{{ url('/students') }}" class="menu-link">
                   <div data-i18n="Without navbar">Student</div>
                 </a>
               </li>
@@ -78,43 +78,35 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <div class="container">
-                <h2>Edit User</h2>
-
-                @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                    @foreach($errors->all() as $error)
+                <div class="card-header">
+                  <h2>Edit User</h2>
+                  <div class="card-body">
+                    @if($errors->any())
+                    <div class="alert alert-danger">
+                      <ul>
+                      @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
-                    @endforeach
-                    </ul>
-                </div>
-                @endif
-
-                <form action="{{ route('users.update', $user->id) }}" method="GET">
-                @csrf
-                @method('PUT')
-
-                    <div class="form-group">
+                      @endforeach
+                      </ul>
+                    </div>
+                    @endif
+                    <form action="{{ route('users.update', $user->id) }}" method="GET">
+                    @csrf
+                    @method('PUT')
+                      <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" name="name" value="{{ $user->name }}" required>
-                    </div>
-
-                    <div class="form-group">
+                      </div>
+                      <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" value="{{ $user->email }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select name="role" class="form-control">
-                            <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                            <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-success">Update User</button>
-                </form>
-            </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary mt-3">Update</button>
+                    </form>
+                  </div>
+                </div>
+            </div>  
           </div>
-
           <!-- Footer -->
           <footer class="content-footer footer bg-footer-theme">
             <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -137,11 +129,6 @@
         <!-- Content wrapper -->
       </div>
         <!-- / Layout page -->
-    </div>
-
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle">
-      
     </div>
   </div>
 
@@ -166,5 +153,4 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-</body>
 @endsection
